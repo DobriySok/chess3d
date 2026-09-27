@@ -1,4 +1,4 @@
-const Chess = require('./public/js/chess.js');
+const Chess = require('./js/chess.js');
 // Эталонные значения perft для начальной расстановки (общепризнанные):
 const expect = [1, 20, 400, 8902, 197281];
 const st = Chess.initial(false, Math.random);

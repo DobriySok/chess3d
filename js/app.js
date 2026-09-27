@@ -143,11 +143,12 @@ const App = {
 
   /* ================= Начало партии ================= */
   _beginMulti() {
+    this.show('#scr-game');                     // P2P: показываем игровой экран (в лобби его показывает кнопка «Войти»)
     if (Net.isHost) {
-      Net.send({ t: 'start', tc: this.tcKey, host: this.nick() });
-      this._initGame(true);
+      // хост ждёт 'hello' от гостя — старт в onNet (надёжный handshake, без гонки)
+    } else {
+      Net.send({ t: 'hello', name: this.nick() });   // гость инициирует рукопожатие
     }
-    // гость начнёт при получении 'start'
   },
 
   _initGame(runClocks) {
@@ -180,6 +181,7 @@ const App = {
   /* ================= Клик по доске ================= */
   onSquare(sq) {
     if (!this.myTurn) return;
+    if (this.sel === sq) { this.sel = null; Scene3D.select(null); Scene3D.clearDots(); return; } // повторный клик снимает выделение
     if (this.sel != null) {
       const cand = Chess.legal(this.st, this.sel).filter(m => m.to === sq);
       if (cand.length) {
@@ -227,7 +229,13 @@ const App = {
   /* ================= Приём сообщения ================= */
   onNet(m) {
     if (!m) return;
-    if (m.t === 'hello' && Net.isHost && this.st && !this._started) { /* handshake: сразу старт */ }
+    if (m.t === 'hello' && Net.mode === 'p2p' && Net.isHost) {
+      // гость подключился по P2P: шлём старт
+      Net.send({ t: 'start', tc: this.tcKey, host: this.nick() });
+      this._initGame(true);
+      this._msg('Соперник подключился. Вы — белые.');
+      return;
+    }
     if (m.t === 'hello' && Net.mode === 'local' && Net.isHost) {
       // второе окно подключилось: шлём старт
       Net.send({ t: 'start', tc: this.tcKey, host: this.nick() });

@@ -3,14 +3,17 @@ html,body{margin:0;height:100%;background:#0d1117;color:#e6edf3;font-family:'Seg
 .screen{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;box-sizing:border-box}
 .screen.full{padding:0;display:block}
 .hidden{display:none!important}
+/* меню на фоне фото-неба */
+#scr-menu{background:linear-gradient(rgba(10,20,34,.45),rgba(10,20,34,.72)),url('../assets/sky.jpg') center 68%/cover no-repeat}
+#scr-menu .logo,#scr-menu .sub{text-shadow:0 2px 14px rgba(0,20,45,.65)}
 .logo{font-size:52px;font-weight:900;letter-spacing:6px;color:#fff}
 .logo span{color:#ffd23e}
 .logo.sm{font-size:34px;letter-spacing:4px}
-.sub{color:#8b98a9;letter-spacing:1px;font-size:13px;margin-top:-8px}
-.btn{background:#1f2733;border:1px solid #3a4757;color:#e6edf3;padding:10px 20px;font-size:15px;border-radius:8px;cursor:pointer;transition:.12s}
-.btn:hover{background:#2c3a4c;border-color:#5a7290}
-.btn.big{min-width:460px;max-width:92vw;text-align:left;font-weight:600}
-.btn.big small{display:block;font-weight:400;color:#8b98a9;font-size:12px;margin-top:2px}
+.sub{color:#c6d4e2;letter-spacing:1px;font-size:13px;margin-top:-8px}
+.btn{background:rgba(23,32,44,.88);border:1px solid #3a4757;color:#e6edf3;padding:10px 20px;font-size:15px;border-radius:10px;cursor:pointer;transition:transform .12s,background .12s,border-color .12s;backdrop-filter:blur(6px)}
+.btn:hover{background:rgba(44,58,76,.92);border-color:#5a7290;transform:translateY(-1px)}
+.btn.big{min-width:460px;max-width:92vw;text-align:left;font-weight:600;box-shadow:0 6px 22px rgba(4,10,18,.45)}
+.btn.big small{display:block;font-weight:400;color:#9db0c4;font-size:12px;margin-top:2px}
 .btn.back{background:transparent;border-color:#2a3442;color:#8b98a9}
 .btn.tiny{padding:4px 10px;font-size:12px;border-radius:6px}
 .btn:disabled{opacity:.45;cursor:default}
