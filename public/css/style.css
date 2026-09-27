@@ -1,0 +1,40 @@
+html,body{margin:0;height:100%;background:#0d1117;color:#e6edf3;font-family:'Segoe UI',Arial,sans-serif;overflow:hidden}
+#app,.screen{height:100%}
+.screen{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;box-sizing:border-box}
+.screen.full{padding:0;display:block}
+.hidden{display:none!important}
+.logo{font-size:52px;font-weight:900;letter-spacing:6px;color:#fff}
+.logo span{color:#ffd23e}
+.logo.sm{font-size:34px;letter-spacing:4px}
+.sub{color:#8b98a9;letter-spacing:1px;font-size:13px;margin-top:-8px}
+.btn{background:#1f2733;border:1px solid #3a4757;color:#e6edf3;padding:10px 20px;font-size:15px;border-radius:8px;cursor:pointer;transition:.12s}
+.btn:hover{background:#2c3a4c;border-color:#5a7290}
+.btn.big{min-width:460px;max-width:92vw;text-align:left;font-weight:600}
+.btn.big small{display:block;font-weight:400;color:#8b98a9;font-size:12px;margin-top:2px}
+.btn.back{background:transparent;border-color:#2a3442;color:#8b98a9}
+.btn.tiny{padding:4px 10px;font-size:12px;border-radius:6px}
+.btn:disabled{opacity:.45;cursor:default}
+.hint{color:#8b98a9;font-size:13px;min-height:18px;text-align:center}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+.row.col{flex-direction:column}
+input,select{background:#161d27;border:1px solid #3a4757;color:#e6edf3;padding:10px 12px;border-radius:8px;font-size:15px;outline:none}
+input:focus{border-color:#5a7290}
+#room-list{display:flex;flex-direction:column;gap:8px;max-height:44vh;overflow:auto;width:min(560px,92vw)}
+.room{display:flex;align-items:center;gap:12px;background:#161d27;border:1px solid #2c3745;border-radius:10px;padding:12px 16px}
+.room .nm{font-weight:700;font-size:16px}
+.room .meta{color:#8b98a9;font-size:12px}
+.room .grow{flex:1}
+.room.mine{opacity:.55}
+.bigcode{font-family:Consolas,monospace;font-size:44px;letter-spacing:10px;color:#ffd23e;background:#161d27;border:1px dashed #5a7290;border-radius:10px;padding:10px 26px}
+.sep{color:#556;width:100%;text-align:center}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:pointer}
+#topbar{position:absolute;top:0;left:0;right:0;display:flex;gap:14px;align-items:center;padding:10px 14px;background:linear-gradient(180deg,rgba(10,14,20,.85),transparent);font-size:15px}
+#inf-me{color:#8b98a9}
+.clock{font-family:Consolas,monospace;font-weight:700;font-size:19px;background:#161d27;border:1px solid #2c3745;border-radius:8px;padding:4px 12px}
+.clock.act{border-color:#ffd23e;color:#ffd23e}
+.clock.low{color:#ff6b6b;border-color:#ff6b6b}
+#inf-turn{color:#8b98a9}
+#game-msg{position:absolute;left:0;right:0;top:54px;text-align:center;font-size:17px;font-weight:600;color:#ffd23e;text-shadow:0 2px 6px #000;pointer-events:none}
+#promo,#gameover{position:absolute;inset:0;background:rgba(5,8,12,.55);display:flex;align-items:center;justify-content:center;z-index:5}
+.panel{background:#141b24;border:1px solid #3a4757;border-radius:12px;padding:26px 30px;text-align:center;min-width:300px}
+.ptitle{font-size:22px;font-weight:800;margin-bottom:16px}

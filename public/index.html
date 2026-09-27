@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>LAN ШАХМАТЫ 3D</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ГЛАВНОЕ МЕНЮ -->
+  <div id="scr-menu" class="screen">
+    <div class="logo">ШАХМАТЫ <span>3D</span></div>
+    <div class="sub">мультиплеер · без сервера · GitHub Pages</div>
+    <button class="btn big" id="btn-local-lobby">▶ ЛОКАЛЬНЫЕ КОМНАТЫ <small>(два окна этого браузера)</small></button>
+    <button class="btn big" id="btn-p2p">▶ ИГРА ПО СЕТИ <small>(другое устройство, код из 5 букв)</small></button>
+    <button class="btn big" id="btn-hotseat">▶ ДВОЕ ЗА ОДНИМ ЭКРАНОМ</button>
+    <div class="hint" id="menu-hint"></div>
+  </div>
+
+  <!-- ЛОББИ ЛОКАЛЬНЫХ КОМНАТ -->
+  <div id="scr-lobby" class="screen hidden">
+    <div class="logo sm">КОМНАТЫ</div>
+    <div class="sub">открой второе окно этого браузера — комнаты видны сразу</div>
+    <div id="room-list"></div>
+    <div class="row">
+      <input id="room-name" placeholder="Название комнаты" maxlength="24">
+      <select id="room-tc">
+        <option value="none">Без часов</option>
+        <option value="bullet">Пуля 1+0</option>
+        <option value="blitz" selected>Блиц 3+0</option>
+        <option value="rapid">Рапид 10 мин</option>
+      </select>
+      <button class="btn" id="btn-create">СОЗДАТЬ</button>
+    </div>
+    <button class="btn back" data-back>← НАЗАД</button>
+  </div>
+
+  <!-- P2P ПО СЕТИ -->
+  <div id="scr-p2p" class="screen hidden">
+    <div class="logo sm">ИГРА ПО СЕТИ</div>
+    <div class="sub">прямое соединение браузер-браузеру (WebRTC)</div>
+    <div class="row col">
+      <button class="btn" id="btn-p2p-host">СОЗДАТЬ КОМНАТУ (покажу код)</button>
+      <div id="p2p-code" class="bigcode hidden"></div>
+      <div class="sep">— или —</div>
+      <div class="row">
+        <input id="p2p-join-code" placeholder="КОД" maxlength="5" style="text-transform:uppercase">
+        <button class="btn" id="btn-p2p-join">ВОЙТИ</button>
+      </div>
+      <div class="hint" id="p2p-status"></div>
+    </div>
+    <button class="btn back" data-back>← НАЗАД</button>
+  </div>
+
+  <!-- ИГРА -->
+  <div id="scr-game" class="screen full hidden">
+    <canvas id="gl"></canvas>
+    <div id="topbar">
+      <span id="inf-me"></span>
+      <span id="clock-w" class="clock">--:--</span>
+      <span id="vs">·</span>
+      <span id="clock-b" class="clock">--:--</span>
+      <span id="inf-turn"></span>
+      <button class="btn tiny" id="btn-resign">Сдаться</button>
+      <button class="btn tiny" id="btn-exit">Выход</button>
+    </div>
+    <div id="game-msg"></div>
+    <div id="promo" class="hidden">
+      <div class="panel"><div class="ptitle">Превращение пешки</div>
+        <div class="row">
+          <button class="btn promo" data-p="q">Ферзь</button>
+          <button class="btn promo" data-p="r">Ладья</button>
+          <button class="btn promo" data-p="b">Слон</button>
+          <button class="btn promo" data-p="n">Конь</button>
+        </div>
+      </div>
+    </div>
+    <div id="gameover" class="hidden"><div class="panel">
+      <div class="ptitle" id="go-title"></div>
+      <div class="row">
+        <button class="btn" id="btn-rematch">Реванш</button>
+        <button class="btn" id="btn-go-exit">В меню</button>
+      </div>
+    </div></div>
+  </div>
+
+</div>
+<script src="lib_three.js"></script>
+<script src="js/chess.js"></script>
+<script src="js/merge.js"></script>
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script src="js/scene3d.js"></script>
+<script src="js/net.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
