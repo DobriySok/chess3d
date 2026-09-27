@@ -136,6 +136,7 @@ const App = {
     this.myColor = 'both';
     this.tcKey = 'none';
     this.roomName = 'Хотсит';
+    this.show('#scr-game');
     this._initGame(true);
     this._msg('Ход белых');
   },
